@@ -47,17 +47,13 @@ module Fastlane
       end
 
       def self.upload_file(params, multipart_payload)
-        timeout = params[:timeout]
-        if timeout.nil?
-          timeout = 60
-        end
         request = RestClient::Request.new(
           method: :post,
           url: params[:endPoint],
           payload: multipart_payload,
           headers: params[:headers],
           log: Logger.new(STDOUT),
-          timeout: timeout
+          timeout: 300
         )
 
         response = request.execute
