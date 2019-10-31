@@ -51,8 +51,6 @@ module Fastlane
         if timeout.nil?
           timeout = 60
         end
-          
-        end
         request = RestClient::Request.new(
           method: :post,
           url: params[:endPoint],
